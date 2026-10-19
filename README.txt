@@ -6,7 +6,9 @@ A Windows tray utility that runs configurable heartbeats after you stop using th
 
 **[Download the latest release](https://github.com/MaIll-cc/PCPulseGuard/releases/latest)** · [Report an issue](https://github.com/MaIll-cc/PCPulseGuard/issues) · [MIT license](LICENSE)
 
-![PCPulseGuard settings in English](docs/settings-en.jpg)
+<a href="docs/settings-en.png"><img src="docs/settings-en.png" alt="PCPulseGuard settings in English" width="744"></a>
+
+Click a screenshot to open the full-resolution PNG.
 
 ## What it does
 
@@ -49,7 +51,7 @@ The default installation is `%ProgramData%\PCPulseGuard`. The installer creates 
 
 SYSTEM starts before login; the tray appears after login. Mouse movement requires an unlocked desktop. Installation does not enable automatic login. To install for a different account, explicitly supply its `-UserSid` and `-UserProfilePath`.
 
-![PCPulseGuard startup settings](docs/startup-en.jpg)
+<a href="docs/startup-en.png"><img src="docs/startup-en.png" alt="PCPulseGuard startup settings" width="744"></a>
 
 In **More options → Startup**, choose **Start with Windows** and, optionally, **Start silently (tray icon only)**, then select **Apply startup settings**. Silent startup defaults to on; turning it off opens the main window at sign-in. Portable mode registers this copy for the current user's sign-in without administrator rights. Keep its folder in place, or reapply after moving it. Turn startup off before deleting a portable copy.
 
@@ -125,9 +127,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md) and [CHANGELO
 
 **[下载最新版本](https://github.com/MaIll-cc/PCPulseGuard/releases/latest)** · [反馈问题](https://github.com/MaIll-cc/PCPulseGuard/issues) · [MIT 开源许可](LICENSE)
 
-![PCPulseGuard 中文设置界面](docs/settings-zh-CN.jpg)
+<a href="docs/settings-zh-CN.png"><img src="docs/settings-zh-CN.png" alt="PCPulseGuard 中文设置界面" width="744"></a>
 
-![PCPulseGuard 启动设置](docs/startup-zh-CN.jpg)
+点击截图可查看高清 PNG 原图。
+
+<a href="docs/startup-zh-CN.png"><img src="docs/startup-zh-CN.png" alt="PCPulseGuard 启动设置" width="744"></a>
 
 在 **更多选项 → 启动设置** 中可设置“开机自启动”，下方的“静默启动”决定登录后只显示托盘图标，还是打开主窗口；修改后点击“应用启动设置”。静默启动默认开启。
 

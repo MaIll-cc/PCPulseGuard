@@ -6,7 +6,9 @@ A Windows tray utility that runs configurable heartbeats after you stop using th
 
 **[Download the latest release](https://github.com/MaIll-cc/PCPulseGuard/releases/latest)** · [Report an issue](https://github.com/MaIll-cc/PCPulseGuard/issues) · [MIT license](LICENSE)
 
-![PCPulseGuard settings in English](docs/settings-en.jpg)
+<a href="docs/settings-en.png"><img src="docs/settings-en.png" alt="PCPulseGuard settings in English" width="744"></a>
+
+Click a screenshot to open the full-resolution PNG.
 
 ## What it does
 
@@ -49,7 +51,7 @@ The default installation is `%ProgramData%\PCPulseGuard`. The installer creates 
 
 SYSTEM starts before login; the tray appears after login. Mouse movement requires an unlocked desktop. Installation does not enable automatic login. To install for a different account, explicitly supply its `-UserSid` and `-UserProfilePath`.
 
-![PCPulseGuard startup settings](docs/startup-en.jpg)
+<a href="docs/startup-en.png"><img src="docs/startup-en.png" alt="PCPulseGuard startup settings" width="744"></a>
 
 In **More options → Startup**, choose **Start with Windows** and, optionally, **Start silently (tray icon only)**, then select **Apply startup settings**. Silent startup defaults to on; turning it off opens the main window at sign-in. Portable mode registers this copy for the current user's sign-in without administrator rights. Keep its folder in place, or reapply after moving it. Turn startup off before deleting a portable copy.
 

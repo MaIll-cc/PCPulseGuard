@@ -6,9 +6,11 @@
 
 **[下载最新版本](https://github.com/MaIll-cc/PCPulseGuard/releases/latest)** · [反馈问题](https://github.com/MaIll-cc/PCPulseGuard/issues) · [MIT 开源许可](LICENSE)
 
-![PCPulseGuard 中文设置界面](docs/settings-zh-CN.jpg)
+<a href="docs/settings-zh-CN.png"><img src="docs/settings-zh-CN.png" alt="PCPulseGuard 中文设置界面" width="744"></a>
 
-![PCPulseGuard 启动设置](docs/startup-zh-CN.jpg)
+点击截图可查看高清 PNG 原图。
+
+<a href="docs/startup-zh-CN.png"><img src="docs/startup-zh-CN.png" alt="PCPulseGuard 启动设置" width="744"></a>
 
 在 **更多选项 → 启动设置** 中可设置“开机自启动”，下方的“静默启动”决定登录后只显示托盘图标，还是打开主窗口；修改后点击“应用启动设置”。静默启动默认开启。
 
