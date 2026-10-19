@@ -120,7 +120,7 @@ public static class WatchdogProgram {
     [STAThread]public static int Main(string[] args) {
         PulseIO.SetRoot(args);
         try {
-            if(Array.IndexOf(args,"--activity")>=0)return InputBridge.Run(PulseIO.Root);
+            if(Array.IndexOf(args,"--activity")>=0)return InputBridge.Run(PulseIO.Root,Array.IndexOf(args,"--poll-input")>=0);
             int worker=Array.IndexOf(args,"--worker");if(worker>=0&&worker+1<args.Length)return PulseWorker.Run(PulseIO.Root,args[worker+1]);
             return PulseEngine.Run(PulseIO.Root);
         }catch(Exception e){PulseIO.Log(PulseIO.Root,"Fatal: "+e.Message);return 1;}

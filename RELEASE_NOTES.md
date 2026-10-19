@@ -1,19 +1,21 @@
-# PCPulseGuard v0.3.0
+# PCPulseGuard v0.3.1
 
-First public release. Configurable no-input heartbeats for Windows workstations, with mouse/CPU/GPU actions, compute-load guards, tray status, seven UI languages and GitHub update checks.
+Fix mouse activity failing to reset the inactivity countdown after boot or after a low-level hook stops delivering callbacks. The former monitor could report hook handles as present while missing mouse movement and clicks.
 
-**More options → Startup** includes Windows auto-start and silent tray startup. Portable copies use a current-user startup entry; installed copies manage their existing boot/logon tasks with administrator approval.
+- Mouse/keyboard Raw Input, low-level hooks and continuous Windows session polling now complement each other on an independent thread. Settings/status-file I/O cannot block that input message pump.
+- Movement, buttons and wheel events count as activity. This app's own marked mouse pulse remains excluded, including in polling-only fallback mode.
+- Local diagnostics contain timestamps and per-source event counts; no key contents, device identities or pointer-position history are recorded.
+- Added regression coverage for absent callbacks, own-pulse filtering and Windows tick wrap. Integration readers allow atomic status-file replacement.
 
-Download **PCPulseGuard-0.3.0-windows-x64.zip**, extract it and run PCPulseGuard.exe. To install boot/logon tasks, run Install.ps1 as administrator. Existing custom installations must retain their original installation directory and task prefix. The app is currently unsigned. Compare the download with SHA256SUMS.txt.
-
-Updates are checked only; the app never automatically downloads or installs them. Periodic heartbeats are not a guarantee against crashes or hardware faults. GPU compatibility beyond the tested RTX 3060 still needs field validation.
+Download **PCPulseGuard-0.3.1-windows-x64.zip**. For an installed copy, rerun Install.ps1 as administrator with the original installation directory and task prefix. Settings and startup choices are preserved. The app is unsigned; verify SHA256SUMS.txt.
 
 ---
 
-首次公开发布：支持无人操作后执行鼠标、CPU、GPU 心跳，计算高负载避让、托盘状态、七种界面语言和 GitHub 更新检查。
+修复开机后，或鼠标钩子不再回调时，鼠标移动、点击和滚轮不能重置无人操作倒计时的问题。旧版可能仍显示钩子句柄存在，却没有真正收到鼠标活动。
 
-“更多选项 → 启动设置”提供开机自启动及静默启动。便携版使用当前用户启动项；安装版通过管理员授权管理原有的开机／登录任务。
+- 独立线程同时使用 Raw Input、低级事件钩子和持续 Windows 会话轮询，设置和状态文件读写不再阻塞输入消息循环。
+- 保留自身鼠标心跳过滤；即使只剩兜底轮询，也不会把自己的心跳当成用户操作。
+- 本地诊断仅增加时间戳和各输入来源的事件计数，不记录按键内容、设备身份或鼠标位置历史。
+- 补充钩子失效、心跳过滤及系统计时器回绕的回归检查；集成检查读取状态文件时允许原子替换。
 
-下载 **PCPulseGuard-0.3.0-windows-x64.zip**，解压后运行 PCPulseGuard.exe。需要开机／登录任务时，以管理员身份运行 Install.ps1；旧的自定义安装需沿用原安装目录和任务前缀。当前程序未进行代码签名，请核对 SHA256SUMS.txt。
-
-更新检查不会自动下载安装。心跳不能保证电脑不崩溃，也不能替代硬件故障排查。目前 GPU 路径已在 RTX 3060 验证，其他显卡仍需实际验证。
+下载 **PCPulseGuard-0.3.1-windows-x64.zip**。已安装用户需以管理员身份重新运行 Install.ps1，并沿用原来的安装目录和任务前缀；升级会保留设置和启动方式。程序暂未签名，请核对 SHA256SUMS.txt。

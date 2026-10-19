@@ -9,7 +9,7 @@ foreach($file in @('PCPulseGuard.Core.exe','PCPulseGuard.exe','PulseChecks.exe')
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'assets\PCPulseGuard.ico') -Destination (Join-Path $portable 'PCPulseGuard.ico')
 foreach($file in $docs+@('Install.ps1','Uninstall.ps1','SetStartup.ps1')){Copy-Item -LiteralPath (Join-Path $PSScriptRoot $file) -Destination (Join-Path $portable $file)}
 [IO.File]::WriteAllText((Join-Path $portable 'version.txt'),$version,[Text.UTF8Encoding]::new($false))
-$sources=@('AppInfo.cs','PulseShared.cs','InputBridge.cs','LoadMonitor.cs','GpuPulse.cs','PulseEngine.cs','Tray.cs','Localization.cs','StartupManager.cs','SetStartup.ps1','Languages.tsv','UpdateChecker.cs','Checks.cs','Build.ps1','IntegrationChecks.ps1','Install.ps1','Uninstall.ps1','Package.ps1','.gitignore','.gitattributes','.editorconfig','RELEASE_NOTES.md')+$docs
+$sources=@('AppInfo.cs','PulseShared.cs','InputBridge.cs','InputMonitor.cs','LoadMonitor.cs','GpuPulse.cs','PulseEngine.cs','Tray.cs','Localization.cs','StartupManager.cs','SetStartup.ps1','Languages.tsv','UpdateChecker.cs','Checks.cs','Build.ps1','IntegrationChecks.ps1','Install.ps1','Uninstall.ps1','Package.ps1','.gitignore','.gitattributes','.editorconfig','RELEASE_NOTES.md')+$docs
 foreach($file in $sources){Copy-Item -LiteralPath (Join-Path $PSScriptRoot $file) -Destination (Join-Path $source $file)}
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'assets\PCPulseGuard.ico') -Destination (Join-Path $source 'assets\PCPulseGuard.ico')
 if(Test-Path -LiteralPath (Join-Path $PSScriptRoot '.github')){Copy-Item -LiteralPath (Join-Path $PSScriptRoot '.github') -Destination (Join-Path $source '.github') -Recurse}

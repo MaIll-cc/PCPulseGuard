@@ -15,7 +15,7 @@ public static class PulseChecks {
         assert("server uptime beyond seven days",PulseIO.Duration(900000)=="250:00:00");
         assert("seven complete language catalogs and placeholders",L.Validate()>100&&L.Codes.Length==7);
         foreach(string code in L.Codes){L.Set(code);assert("localized state "+code,!String.IsNullOrEmpty(L.State("busy")));}L.Set("en");
-        assert("semantic version parsing",UpdateChecker.ParseVersion("v1.2.3")>UpdateChecker.ParseVersion("v0.9.9")&&UpdateChecker.ParseVersion("v0.3.0")==UpdateChecker.ParseVersion(AppInfo.Version));
+        assert("semantic version parsing",UpdateChecker.ParseVersion("v1.2.3")>UpdateChecker.ParseVersion("v0.9.9")&&UpdateChecker.ParseVersion("v"+AppInfo.Version)==UpdateChecker.ParseVersion(AppInfo.Version));
         assert("reject malformed and prerelease versions",UpdateChecker.ParseVersion("v0.4.0-beta")==null&&UpdateChecker.ParseVersion("999999999999.1.0")==null&&UpdateChecker.ParseVersion("& calc.exe")==null);
         string release=AppInfo.RepositoryUrl+"/releases/tag/v0.4.0";
         assert("official release URLs only",UpdateChecker.ReleaseUrlAllowed(release)&&!UpdateChecker.ReleaseUrlAllowed("https://evil.example/releases/tag/v1.0.0")&&!UpdateChecker.ReleaseUrlAllowed(release.Replace("https:","http:"))&&!UpdateChecker.ReleaseUrlAllowed("https://github.com/other/project/releases/tag/v1.0.0")&&!UpdateChecker.ReleaseUrlAllowed("file:///C:/Windows/calc.exe"));
@@ -23,6 +23,15 @@ public static class PulseChecks {
         assert("new stable release detected",UpdateChecker.Parse(releaseData).Available);releaseData["tag_name"]="v"+AppInfo.Version;
         assert("current release does not offer downgrade",!UpdateChecker.Parse(releaseData).Available);releaseData["prerelease"]=true;
         assert("prereleases excluded",UpdateChecker.Parse(releaseData).Code=="no_release");
+        var inputClock=new InputClock(now.AddMinutes(-5),100);DateTime inputAt;string inputKind;
+        assert("session polling detects input without hook callbacks",inputClock.Poll(200,200,now));inputClock.Read(out inputAt,out inputKind);
+        assert("fallback input resets inactivity countdown",inputKind=="session_poll"&&inputAt==now&&state(s,(now-inputAt).TotalSeconds,0,0,true,DateTime.MinValue)=="idle_wait");
+        inputClock.Own(300,now);assert("own heartbeat tick is excluded from session polling",!inputClock.Poll(300,300,now.AddSeconds(1)));
+        assert("real input immediately after own mouse pulse is detected",inputClock.Poll(301,301,now.AddSeconds(1)));
+        assert("old session ticks cannot move activity backwards",!inputClock.Poll(250,310,now.AddSeconds(1)));
+        var wrapClock=new InputClock(now.AddSeconds(-1),UInt32.MaxValue-20);assert("session tick wrap remains accurate",wrapClock.Poll(UInt32.MaxValue-5,3,now));wrapClock.Read(out inputAt,out inputKind);
+        assert("wrapped tick idle age is bounded",Math.Abs((now-inputAt).TotalMilliseconds-9)<0.1);
+        var expiredOwn=new InputClock(now,1);expiredOwn.Own(50,now);assert("old own ticks cannot hide later real input",expiredOwn.Poll(50,50,now.AddSeconds(11)));
         assert("startup command quotes executable and root",StartupManager.Command(@"C:\Test Folder\PCPulseGuard.exe",@"C:\Data Folder",true)=="\"C:\\Test Folder\\PCPulseGuard.exe\" --tray --root \"C:\\Data Folder\"");
         assert("normal startup explicitly opens window",StartupManager.Command("app.exe","data",false)=="\"app.exe\" --show --root \"data\"");
         assert("mouse defaults to one pixel",s.MousePixels==1);

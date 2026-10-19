@@ -1,5 +1,15 @@
 # Changelog / 更新日志
 
+## 0.3.1 — 2026-10-19
+
+- Fix mouse movement, clicks and wheel activity failing to reset inactivity when a low-level hook silently stops delivering callbacks.
+- Receive mouse/keyboard Raw Input and run hooks plus continuous session polling on a dedicated thread, isolated from settings and status-file I/O.
+- Continue excluding the app's own mouse pulse from inactivity, including in polling-only fallback mode.
+- Reject stale/unhealthy input-monitor records and expose timestamp-only input-source counters for troubleshooting.
+- Add input-clock and polling-fallback regression coverage.
+
+修复重启后鼠标操作不重置无人操作倒计时的问题。输入监测改为独立线程，通过 Raw Input、事件钩子和持续会话轮询相互补充；保留自身鼠标心跳过滤，并补充钩子失效、计时器回绕及兜底模式回归检查。
+
 ## 0.3.0 — 2026-10-19
 
 - First public release as **PCPulseGuard**, under the MIT license.

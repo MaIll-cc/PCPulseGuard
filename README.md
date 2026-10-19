@@ -80,6 +80,8 @@ CPU/GPU percentages are approximate targets, not precision utilization guarantee
 
 Mouse pulses do not reset this app's idle timer. Locked/secure desktops, held mouse buttons, missing input monitoring or system input restrictions can skip the mouse action. A partial result means some selected actions did not complete; consult the log.
 
+Input monitoring uses Raw Input and low-level hooks on an independent thread, backed by continuous Windows session polling. A silently removed hook does not disable fallback detection. The app records event categories and timestamps only; it filters its own marked mouse pulses from the idle timer.
+
 ## Languages
 
 Use the language selector in the header. Switching is immediate and remembered: 简体中文, 繁體中文, English, 日本語, Deutsch, Español and Français. UI labels, status, tray menus, time units and update messages are translated. Technical diagnostic logs and operating-system error text may remain in English or the OS language. Translation improvements are welcome.
@@ -90,7 +92,7 @@ Use **More options → Version and updates** or the tray's **Check for updates**
 
 The heartbeat engine works offline. Update checks send GitHub a normal HTTPS request with the app name/version as User-Agent, exposing the usual network metadata such as your IP address. Daily checks can be disabled. No input contents, application names, window titles, screenshots, model/service configuration, logs or machine identifiers are uploaded.
 
-The local input bridge records timestamps and whether the desktop can accept a mouse pulse. It does **not** record typed keys or a mouse-position history. Settings, session timestamps, status and logs remain in the portable directory or chosen installation directory; a log rotates at about 2 MiB. **Exit tray** leaves the engine running. To stop heartbeats, turn the master switch off. This does not reverse an independent Windows power plan.
+The local input bridge records timestamps, per-source event counts and whether the desktop can accept a mouse pulse. It does **not** record typed keys or a mouse-position history. Settings, session timestamps, status and logs remain in the portable directory or chosen installation directory; a log rotates at about 2 MiB. **Exit tray** leaves the engine running. To stop heartbeats, turn the master switch off. This does not reverse an independent Windows power plan.
 
 ## Uninstall
 

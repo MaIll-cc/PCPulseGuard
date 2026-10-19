@@ -80,6 +80,8 @@ CPU/GPU percentages are approximate targets, not precision utilization guarantee
 
 Mouse pulses do not reset this app's idle timer. Locked/secure desktops, held mouse buttons, missing input monitoring or system input restrictions can skip the mouse action. A partial result means some selected actions did not complete; consult the log.
 
+Input monitoring uses Raw Input and low-level hooks on an independent thread, backed by continuous Windows session polling. A silently removed hook does not disable fallback detection. The app records event categories and timestamps only; it filters its own marked mouse pulses from the idle timer.
+
 ## Languages
 
 Use the language selector in the header. Switching is immediate and remembered: 简体中文, 繁體中文, English, 日本語, Deutsch, Español and Français. UI labels, status, tray menus, time units and update messages are translated. Technical diagnostic logs and operating-system error text may remain in English or the OS language. Translation improvements are welcome.
@@ -90,7 +92,7 @@ Use **More options → Version and updates** or the tray's **Check for updates**
 
 The heartbeat engine works offline. Update checks send GitHub a normal HTTPS request with the app name/version as User-Agent, exposing the usual network metadata such as your IP address. Daily checks can be disabled. No input contents, application names, window titles, screenshots, model/service configuration, logs or machine identifiers are uploaded.
 
-The local input bridge records timestamps and whether the desktop can accept a mouse pulse. It does **not** record typed keys or a mouse-position history. Settings, session timestamps, status and logs remain in the portable directory or chosen installation directory; a log rotates at about 2 MiB. **Exit tray** leaves the engine running. To stop heartbeats, turn the master switch off. This does not reverse an independent Windows power plan.
+The local input bridge records timestamps, per-source event counts and whether the desktop can accept a mouse pulse. It does **not** record typed keys or a mouse-position history. Settings, session timestamps, status and logs remain in the portable directory or chosen installation directory; a log rotates at about 2 MiB. **Exit tray** leaves the engine running. To stop heartbeats, turn the master switch off. This does not reverse an independent Windows power plan.
 
 ## Uninstall
 
@@ -200,6 +202,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\Install.ps1
 
 本应用自己的鼠标动作不会重置无人操作计时。锁屏、安全桌面、鼠标按键按住、输入监测不可用或系统阻止输入时，鼠标动作可能跳过。“部分完成”表示某些选中动作没有完成，应查看日志。
 
+输入监测在独立线程中使用 Raw Input 和低级事件钩子，并持续通过 Windows 会话输入时间进行兜底。钩子失效不会停用兜底检测；自身带标记的鼠标心跳不会重置无人操作计时。
+
 ## 语言切换
 
 窗口右上角可切换简体中文、繁体中文、英文、日文、德文、西班牙文、法文，立即生效并保存选择。主界面、状态、托盘菜单、时间单位及更新提示均有翻译；技术日志和操作系统错误信息可能仍使用英文或系统语言。欢迎提交翻译改进。
@@ -210,7 +214,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\Install.ps1
 
 心跳后台本身离线工作。版本检查会向 GitHub 发出普通 HTTPS 请求，User-Agent 包含应用名称与版本，GitHub 可获得 IP 地址等常规网络元数据；可关闭每日自动检查。不会上传输入内容、应用名称、窗口标题、截图、模型或服务配置、日志、机器标识。
 
-本地输入监测仅记录活动时间及桌面能否接收鼠标动作，不记录按键内容或鼠标位置历史。设置、会话时间、状态和日志保存在便携目录或指定安装目录，日志约 2 MiB 后轮换。
+本地输入监测仅记录活动时间、各输入来源的事件计数及桌面能否接收鼠标动作，不记录按键内容或鼠标位置历史。设置、会话时间、状态和日志保存在便携目录或指定安装目录，日志约 2 MiB 后轮换。
 
 关闭窗口只是隐藏；“退出图标（后台继续）”不会关闭后台。如需停止心跳，应取消“开启心跳保活”。这不会撤销独立配置的 Windows 电源计划。
 

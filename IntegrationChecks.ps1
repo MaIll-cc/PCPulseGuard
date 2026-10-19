@@ -4,7 +4,7 @@ New-Item -ItemType Directory -Path (Join-Path $root 'activity') -Force|Out-Null
 $exe=Join-Path $PSScriptRoot 'bin\PCPulseGuard.Core.exe'
 $results=[System.Collections.Generic.List[object]]::new()
 $settings=[ordered]@{Version=2;Enabled=$false;MouseEnabled=$true;MousePixels=1;CpuEnabled=$false;GpuEnabled=$false;IdleValue=2;IdleUnit='s';RepeatValue=3;RepeatUnit='s';DurationValue=1;DurationUnit='s';CpuPercent=5;GpuPercent=5;SkipHighLoad=$true;CpuBusyPercent=100;GpuBusyPercent=100;KeepSystemAwake=$true;KeepDisplayAwake=$false;MemoryEnabled=$false;DiskEnabled=$false}
-function Read-Record([string]$name){try{Get-Content -LiteralPath (Join-Path $root $name) -Raw|ConvertFrom-Json}catch{$null}}
+function Read-Record([string]$name){try{$stream=[IO.FileStream]::new((Join-Path $root $name),[IO.FileMode]::Open,[IO.FileAccess]::Read,([IO.FileShare]::ReadWrite -bor [IO.FileShare]::Delete));$reader=[IO.StreamReader]::new($stream,[Text.Encoding]::UTF8);try{$reader.ReadToEnd()|ConvertFrom-Json}finally{$reader.Dispose()}}catch{$null}}
 function Save-Settings{ $path=Join-Path $root 'activity\preferences.json';$tmp=$path+'.tmp';[IO.File]::WriteAllText($tmp,($settings|ConvertTo-Json -Compress),[Text.UTF8Encoding]::new($false));if(Test-Path -LiteralPath $path){[IO.File]::Replace($tmp,$path,$path+'.bak')}else{[IO.File]::Move($tmp,$path)} }
 function Assert([string]$name,[bool]$passed){if(!$passed){throw ('Check failed: '+$name)};$results.Add([pscustomobject]@{name=$name;passed=$true})}
 function Wait-Record([string]$name,[scriptblock]$condition,[int]$seconds=35){$deadline=[datetime]::UtcNow.AddSeconds($seconds);do{$record=Read-Record $name;if($record -and (& $condition $record)){return $record};Start-Sleep -Milliseconds 250}while([datetime]::UtcNow -lt $deadline);throw ('Timed out: '+$name+' '+(& $condition).ToString())}
@@ -15,6 +15,7 @@ try{
  $core=Start-Process -FilePath $exe -ArgumentList ('--root "'+$root+'"') -WindowStyle Hidden -PassThru
  $session=(Get-Process -Id $PID).SessionId;$activity='activity\activity-'+$session+'.json'
  $a=Wait-Record $activity {param($v)$v.metadataHooks -and $v.mouseAvailable}
+ Assert 'independent input monitor and Raw Input registration are healthy' ($a.monitorHealthy -and $a.rawInputRegistered)
  $disabled=Wait-Record 'pulse-status.json' {param($v)$v.code -eq 'disabled'}
  Assert 'master off is observed by scheduler' ($disabled.code -eq 'disabled')
  $settings.Enabled=$true;Save-Settings
@@ -47,6 +48,22 @@ try{
  $orphanEnd=Wait-Record 'pulse-last.json' {param($v)$v.id -eq $orphan.jobId -and $v.status -eq 'cancelled' -and $v.reason -eq 'Parent engine stopped'} 8
  Wait-Process -Id $orphan.workerPid -Timeout 5 -ErrorAction SilentlyContinue
  Assert 'orphaned load worker stops after engine exits' (!(Get-Process -Id $orphan.workerPid -ErrorAction SilentlyContinue))
+ # Exercise the fallback with both hook and Raw Input callbacks deliberately absent.
+ # This reproduces the missing-callback condition without relying on a reboot race.
+ $settings.Enabled=$false;Save-Settings
+ Stop-Process -Id $bridge.Id -Force;Wait-Process -Id $bridge.Id -Timeout 5 -ErrorAction SilentlyContinue
+ $bridge=Start-Process -FilePath $exe -ArgumentList ('--activity --poll-input --root "'+$root+'"') -WindowStyle Hidden -PassThru
+ $core=Start-Process -FilePath $exe -ArgumentList ('--root "'+$root+'"') -WindowStyle Hidden -PassThru
+ $poll=Wait-Record $activity {param($v)$v.monitorHealthy -and !$v.metadataHooks -and !$v.rawInputRegistered}
+ $disabled=Wait-Record 'pulse-status.json' {param($v)$v.code -eq 'disabled'}
+ Assert 'polling fallback is healthy without event callbacks' ($poll.monitorHealthy -and !$poll.metadataHooks)
+ $settings.MouseEnabled=$true;$settings.CpuEnabled=$false;$settings.GpuEnabled=$false;$settings.DurationValue=1;$settings.Enabled=$true;Save-Settings
+ $pollOne=Wait-Record 'pulse-last.json' {param($v)$v.id -ne $orphan.jobId -and $v.status -eq 'completed' -and $v.mouse -eq 'moved'}
+ $pollBefore=(Read-Record $activity).inputUtc
+ $pollTwo=Wait-Record 'pulse-last.json' {param($v)$v.id -ne $pollOne.id -and $v.status -eq 'completed' -and $v.mouse -eq 'moved'}
+ $pollAfter=Read-Record $activity
+ Assert 'mouse heartbeats still complete when callbacks are unavailable' ($pollOne.mouse -eq 'moved' -and $pollTwo.mouse -eq 'moved')
+ Assert 'poll-only fallback excludes own synthetic mouse events' ($pollAfter.inputUtc -eq $pollBefore -and $pollAfter.fallbackEvents -eq 0)
  $report=[ordered]@{time=[datetimeoffset]::Now.ToString('o');passed=$results.Count;results=$results;mouseOne=$first;mouseCustom=$second;combined=$combined;cancelled=$cancelled;orphanCancelled=$orphanEnd;dataRoot=$root}
  $report|ConvertTo-Json -Depth 8|Set-Content -LiteralPath (Join-Path $PSScriptRoot 'bin\checks-integration.json') -Encoding UTF8
  [pscustomobject]@{passed=$results.Count;report=(Join-Path $PSScriptRoot 'bin\checks-integration.json')}
