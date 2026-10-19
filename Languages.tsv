@@ -1,0 +1,135 @@
+# Simplified Chinese | English | Traditional Chinese | Japanese | German | Spanish | French
+数值|Value|數值|値|Wert|Valor|Valeur
+单位|Unit|單位|単位|Einheit|Unidad|Unité
+秒|Seconds|秒|秒|Sekunden|Segundos|Secondes
+分钟|Minutes|分鐘|分|Minuten|Minutos|Minutes
+小时|Hours|小時|時間|Stunden|Horas|Heures
+开启心跳保活|Enable keep-alive|開啟心跳保活|ハートビートを有効化|Aktiv halten aktivieren|Activar mantenimiento|Activer le maintien actif
+保活设置|Keep-alive|保活設定|保活設定|Einstellungen|Configuración|Réglages
+运行状态|Status|執行狀態|状態|Status|Estado|État
+更多选项|More options|更多選項|その他|Weitere Optionen|Más opciones|Autres options
+隐藏到托盘|Hide to tray|隱藏至系統匣|トレイに隠す|Im Tray ausblenden|Ocultar en bandeja|Masquer dans la zone
+设置会自动保存|Settings save automatically|設定會自動儲存|設定は自動保存されます|Automatisches Speichern|Guardado automático|Enregistrement automatique
+正在读取后台状态|Reading background status|正在讀取背景狀態|バックグラウンド状態を取得中|Status wird geladen|Leyendo estado|Lecture de l’état
+触发时间|Timing|觸發時間|実行タイミング|Zeitsteuerung|Temporización|Délais
+无人操作多久后触发心跳|Trigger after no user input|無人操作多久後觸發心跳|無操作から実行まで|Auslösen nach Inaktivität|Activar tras inactividad|Déclencher après inactivité
+两次心跳的最短间隔|Minimum heartbeat interval|兩次心跳的最短間隔|実行の最短間隔|Mindestabstand|Intervalo mínimo|Intervalle minimal
+心跳动作（可以多选）|Heartbeat actions (choose any)|心跳動作（可以複選）|ハートビート動作（複数可）|Aktionen (Mehrfachauswahl)|Acciones (selección múltiple)|Actions (choix multiples)
+移动鼠标|Move mouse|移動滑鼠|マウスを移動|Maus bewegen|Mover ratón|Déplacer la souris
+鼠标移动像素数|Mouse distance in pixels|滑鼠移動像素數|マウス移動ピクセル数|Mausweg in Pixeln|Distancia en píxeles|Distance en pixels
+像素|pixels|像素|ピクセル|Pixel|píxeles|pixels
+随后移回原位，不点击|Returns to start; no click|隨後移回原位，不點擊|元の位置に戻す・クリックなし|Zurück zum Start, kein Klick|Vuelve al inicio, sin clic|Retour au départ, sans clic
+CPU 负载|CPU load|CPU 負載|CPU 負荷|CPU-Last|Carga de CPU|Charge CPU
+GPU 负载|GPU load|GPU 負載|GPU 負荷|GPU-Last|Carga de GPU|Charge GPU
+CPU 目标负载百分比|CPU target load percent|CPU 目標負載百分比|CPU 目標負荷率|CPU-Ziellast in Prozent|Objetivo de CPU en porcentaje|Charge CPU cible en pourcentage
+GPU 目标负载百分比|GPU target load percent|GPU 目標負載百分比|GPU 目標負荷率|GPU-Ziellast in Prozent|Objetivo de GPU en porcentaje|Charge GPU cible en pourcentage
+目标负载|Target load|目標負載|目標負荷|Ziellast|Carga objetivo|Charge cible
+负载持续时间|Load duration|負載持續時間|負荷の継続時間|Lastdauer|Duración de carga|Durée de la charge
+按目标比例间歇运算；实际利用率会受硬件和现有任务影响。|Uses duty cycling; actual utilization depends on hardware and other work.|依目標比例間歇運算；實際使用率取決於硬體與現有工作。|間欠計算で負荷を調整します。実使用率は機器と他の処理で変わります。|Taktweise Berechnung; die Auslastung hängt von Hardware und anderen Aufgaben ab.|Cálculo intermitente; el uso real depende del hardware y otras tareas.|Calcul intermittent ; l’utilisation réelle dépend du matériel et des autres tâches.
+忙碌时避让|Avoid busy workloads|忙碌時避讓|高負荷時は待機|Bei hoher Last aussetzen|Evitar cargas elevadas|Éviter les fortes charges
+高负载时跳过心跳|Skip heartbeat during high load|高負載時略過心跳|高負荷時は実行しない|Bei hoher Last überspringen|Omitir con carga elevada|Ignorer en cas de forte charge
+CPU 超过|CPU above|CPU 超過|CPU が超える|CPU über|CPU superior a|CPU au-delà de
+或 GPU 超过|or GPU above|或 GPU 超過|または GPU が超える|oder GPU über|o GPU superior a|ou GPU au-delà de
+CPU 忙碌阈值百分比|CPU busy threshold percent|CPU 忙碌閾值百分比|CPU 高負荷のしきい値|CPU-Lastgrenze in Prozent|Umbral de CPU en porcentaje|Seuil CPU en pourcentage
+GPU 忙碌阈值百分比|GPU busy threshold percent|GPU 忙碌閾值百分比|GPU 高負荷のしきい値|GPU-Lastgrenze in Prozent|Umbral de GPU en porcentaje|Seuil GPU en pourcentage
+只监测用户输入和整机计算负载。模型或缓存驻留内存、显存不视为忙碌。|Only input timing and system CPU/GPU activity count. Resident models and caches do not mean busy.|僅監測輸入時間與整機計算負載；模型或快取駐留記憶體、顯示記憶體不視為忙碌。|入力時刻と CPU/GPU 計算負荷を監視します。モデルやキャッシュの常駐は高負荷とみなしません。|Nur Eingaben und CPU/GPU-Rechenlast zählen. Geladene Modelle und Caches gelten nicht als Last.|Solo cuentan las entradas y la actividad CPU/GPU. Los modelos y cachés en memoria no indican carga.|Seuls les entrées et les calculs CPU/GPU comptent. Les modèles et caches résidents ne sont pas une charge.
+实时状态|Live status|即時狀態|現在の状態|Live-Status|Estado en vivo|État en direct
+后台|Background engine|背景服務|バックグラウンド|Hintergrund|Motor en segundo plano|Moteur en arrière-plan
+等待连接|Connecting|等待連線|接続待ち|Verbinden|Conectando|Connexion
+无人操作|No user input|無人操作|無操作時間|Inaktivität|Sin entradas|Sans interaction
+CPU 实际利用率|Actual CPU usage|CPU 實際使用率|CPU 実使用率|CPU-Auslastung|Uso real de CPU|Utilisation CPU réelle
+GPU 实际利用率|Actual GPU usage|GPU 實際使用率|GPU 実使用率|GPU-Auslastung|Uso real de GPU|Utilisation GPU réelle
+最近一次心跳|Last heartbeat|最近一次心跳|前回の実行|Letzter Heartbeat|Último latido|Dernière exécution
+尚无记录|No records yet|尚無紀錄|記録はありません|Noch keine Einträge|Sin registros|Aucun enregistrement
+运行日志|Runtime log|執行日誌|実行ログ|Protokoll|Registro|Journal
+打开完整日志|Open full log|開啟完整日誌|ログを開く|Protokoll öffnen|Abrir registro|Ouvrir le journal
+系统唤醒|System wake requests|系統喚醒|スリープ防止|Wachhalteanfragen|Mantener el sistema activo|Maintien du système actif
+开启保活时，阻止电脑自动睡眠|Prevent automatic sleep while keep-alive is enabled|保活啟用時防止電腦自動睡眠|有効中は自動スリープを防ぐ|Automatischen Ruhezustand bei aktivem Keep-alive verhindern|Evitar suspensión automática mientras esté activo|Empêcher la veille automatique lorsque le maintien est actif
+同时保持屏幕点亮|Also keep the display on|同時保持螢幕開啟|画面も点灯状態にする|Auch Bildschirm eingeschaltet lassen|Mantener también la pantalla encendida|Garder aussi l’écran allumé
+其他心跳动作（可选）|Additional actions (optional)|其他心跳動作（選用）|追加動作（任意）|Weitere Aktionen (optional)|Acciones adicionales (opcionales)|Actions supplémentaires (facultatives)
+触碰并检查少量内存（64 MiB）|Touch and verify a small memory buffer (64 MiB)|存取並檢查少量記憶體（64 MiB）|少量のメモリを検査（64 MiB）|Kleinen Speicherpuffer prüfen (64 MiB)|Acceder y verificar memoria (64 MiB)|Accéder à un tampon et le vérifier (64 Mio)
+写入临时文件（4 MiB，完成后自动删除）|Write a temporary file (4 MiB, deleted on completion)|寫入暫存檔（4 MiB，完成後自動刪除）|一時ファイルを書き込む（4 MiB、自動削除）|Temporäre Datei schreiben (4 MiB, automatisch gelöscht)|Escribir archivo temporal (4 MiB, se elimina al terminar)|Écrire un fichier temporaire (4 Mio, supprimé à la fin)
+这些动作同样遵守无人操作时间和高负载避让设置。|These actions also follow the idle timer and high-load guard.|這些動作同樣遵守無操作時間與高負載避讓設定。|これらも無操作時間と高負荷時の待機設定に従います。|Diese Aktionen beachten ebenfalls Wartezeit und Lastgrenzen.|También respetan el tiempo de inactividad y los umbrales de carga.|Ces actions respectent aussi le délai et les seuils de charge.
+应用|Application|應用程式|アプリ|Anwendung|Aplicación|Application
+关闭窗口会隐藏到托盘；退出图标后，独立后台仍继续工作。|Closing hides the window. Exiting the tray leaves the background engine running.|關閉視窗會隱藏至系統匣；退出圖示後，獨立背景仍繼續執行。|閉じるとトレイに隠れます。トレイを終了してもバックグラウンドは動作します。|Schließen blendet das Fenster aus. Ohne Tray läuft der Hintergrund weiter.|Cerrar oculta la ventana. Salir de la bandeja no detiene el motor.|Fermer masque la fenêtre. Quitter l’icône ne ferme pas le moteur.
+GPU 计算使用 Direct3D 11；不可用时会记录原因，其他动作可继续。|GPU compute uses Direct3D 11. Failures are logged; other actions can continue.|GPU 使用 Direct3D 11；不可用時記錄原因，其他動作可繼續。|GPU 計算は Direct3D 11 を使用。失敗は記録され、他の動作は継続できます。|GPU-Berechnung nutzt Direct3D 11. Fehler werden protokolliert.|La GPU usa Direct3D 11. Los fallos se registran y las demás acciones continúan.|Le GPU utilise Direct3D 11. Les échecs sont consignés, les autres actions continuent.
+恢复默认设置|Restore defaults|還原預設值|初期設定に戻す|Standardwerte|Restablecer valores|Rétablir les valeurs
+正在保存设置…|Saving settings…|正在儲存設定…|保存中…|Wird gespeichert…|Guardando…|Enregistrement…
+已保存 · 后台约 1 秒内生效|Saved · applies in about one second|已儲存 · 約一秒內生效|保存済み・約1秒で反映|Gespeichert · in etwa 1 Sekunde aktiv|Guardado · se aplica en un segundo|Enregistré · appliqué sous une seconde
+保存失败：|Save failed: |儲存失敗：|保存失敗：|Speichern fehlgeschlagen: |Error al guardar: |Échec de l’enregistrement :
+设置已生效 · 自动保存|Settings applied · automatic saving|設定已生效 · 自動儲存|設定を反映済み・自動保存|Aktiv · automatisch gespeichert|Configuración aplicada · guardado automático|Réglages appliqués · enregistrement automatique
+暂无日志。|No log yet.|尚無日誌。|ログはありません。|Noch kein Protokoll.|Todavía no hay registro.|Aucun journal pour le moment.
+负载更新：{0}|Usage updated: {0}|負載更新：{0}|負荷更新：{0}|Aktualisiert: {0}|Uso actualizado: {0}|Utilisation actualisée : {0}
+系统运行：{0}|System uptime: {0}|系統運行：{0}|システム稼働時間：{0}|Systemlaufzeit: {0}|Tiempo del sistema: {0}|Disponibilité du système : {0}
+打开保活设置|Open settings|開啟保活設定|設定を開く|Einstellungen öffnen|Abrir configuración|Ouvrir les réglages
+读取状态中|Reading status|讀取狀態中|状態取得中|Status wird gelesen|Leyendo estado|Lecture de l’état
+无人操作多久后触发|Trigger after no input|無操作多久後觸發|無操作からの待ち時間|Wartezeit ohne Eingabe|Activar tras inactividad|Délai sans interaction
+全部时间与动作设置…|All timing and action settings…|所有時間與動作設定…|時間と動作の設定…|Alle Zeit- und Aktionseinstellungen…|Todos los tiempos y acciones…|Tous les délais et actions…
+查看完整日志|View full log|檢視完整日誌|ログを表示|Gesamtes Protokoll|Ver registro completo|Voir le journal complet
+使用说明|User guide|使用說明|使い方|Benutzerhandbuch|Guía de uso|Guide d’utilisation
+退出图标（后台继续）|Exit tray (engine keeps running)|退出圖示（背景繼續）|トレイを終了（処理は継続）|Tray beenden (Hintergrund bleibt aktiv)|Salir de bandeja (el motor sigue)|Quitter l’icône (le moteur continue)
+正在启动|Starting|正在啟動|起動中|Startet|Iniciando|Démarrage
+心跳保活已关闭|Keep-alive is off|心跳保活已關閉|ハートビートは無効です|Keep-alive ist aus|Mantenimiento desactivado|Maintien actif désactivé
+等待无人操作达到设定时间|Waiting for no user input|等待無操作達到設定時間|無操作時間を待機中|Wartet auf Inaktivität|Esperando inactividad|En attente d’inactivité
+等待下一次心跳|Waiting for next heartbeat|等待下一次心跳|次回の実行を待機中|Wartet auf nächsten Heartbeat|Esperando próximo latido|En attente de la prochaine exécution
+计算负载超过设定阈值，正在避让|Busy workload; heartbeat deferred|計算負載超過閾值，正在避讓|高負荷のため待機中|Hohe Rechenlast; wird ausgesetzt|Carga elevada; ejecución aplazada|Forte charge ; exécution différée
+正在建立 CPU 负载采样|Sampling CPU activity|正在建立 CPU 負載取樣|CPU 負荷を測定中|CPU-Last wird erfasst|Midiendo actividad de CPU|Mesure de la charge CPU
+已满足条件，准备执行心跳|Ready to run a heartbeat|條件已滿足，準備執行心跳|実行準備が完了|Bereit für einen Heartbeat|Listo para ejecutar|Prêt pour l’exécution
+正在执行心跳|Heartbeat running|正在執行心跳|ハートビート実行中|Heartbeat läuft|Latido en ejecución|Exécution en cours
+请选择至少一种心跳动作|Select at least one action|請選擇至少一種心跳動作|動作を1つ以上選んでください|Mindestens eine Aktion wählen|Seleccione al menos una acción|Choisissez au moins une action
+等待可靠的用户活动信息|Waiting for reliable input timing|等待可靠的使用者活動資訊|入力情報を待機中|Wartet auf Eingabeinformationen|Esperando información de entrada|En attente d’informations d’entrée
+显卡温度保护，暂不执行心跳|GPU temperature guard; deferred|顯示卡溫度保護，暫緩心跳|GPU 温度保護のため待機|GPU-Temperaturschutz; ausgesetzt|Protección térmica GPU; aplazado|Protection thermique GPU ; différé
+正在连接后台|Connecting to background engine|正在連接背景服務|バックグラウンドに接続中|Hintergrund wird verbunden|Conectando con el motor|Connexion au moteur
+采样中|Sampling|取樣中|測定中|Messung|Midiendo|Mesure
+暂不可用|Unavailable|暫時無法使用|利用不可|Nicht verfügbar|No disponible|Indisponible
+等待活动信息|Waiting for input timing|等待活動資訊|入力情報を待機中|Wartet auf Eingabezeit|Esperando entradas|En attente d’entrées
+等待后台采样|Waiting for samples|等待背景取樣|測定を待機中|Wartet auf Messung|Esperando mediciones|En attente de mesures
+{0} 秒前|{0} seconds ago|{0} 秒前|{0} 秒前|vor {0} Sekunden|hace {0} segundos|il y a {0} secondes
+后台正常运行|Background engine healthy|背景正常執行|バックグラウンドは正常です|Hintergrund läuft normal|Motor funcionando|Moteur opérationnel
+后台未连接或数据已过期|Engine offline or status stale|背景未連接或資料已過期|未接続または情報が古い状態|Hintergrund offline oder Daten veraltet|Motor desconectado o datos antiguos|Moteur déconnecté ou données périmées
+已完成（{0} 秒）|Completed ({0} seconds)|已完成（{0} 秒）|完了（{0} 秒）|Abgeschlossen ({0} Sekunden)|Completado ({0} segundos)|Terminé ({0} secondes)
+部分动作不可用，详见日志|Some actions unavailable; see log|部分動作無法使用，詳見日誌|一部の動作を実行できません。ログ参照|Einige Aktionen nicht verfügbar; siehe Protokoll|Algunas acciones no disponibles; vea el registro|Certaines actions indisponibles ; voir le journal
+用户活动、设置变化或负载保护，已结束|Stopped by input, settings or load guard|因使用者活動、設定或負載保護而結束|操作・設定変更・負荷保護により停止|Durch Eingabe, Änderung oder Lastschutz beendet|Detenido por entrada, ajustes o protección|Arrêté par interaction, réglages ou protection
+执行异常，详见日志|Execution failed; see log|執行異常，詳見日誌|実行エラー。ログを参照|Ausführung fehlgeschlagen; siehe Protokoll|Error de ejecución; vea el registro|Échec de l’exécution ; voir le journal
+尚无心跳记录|No heartbeat yet|尚無心跳紀錄|実行履歴はありません|Noch kein Heartbeat|Sin latidos todavía|Aucune exécution pour le moment
+以无人操作时间为首要条件；内存和显存中的驻留内容不计为忙碌。|Input inactivity is the primary trigger; memory and VRAM residency do not count as busy.|以無操作時間為首要條件；記憶體及顯示記憶體中的駐留內容不視為忙碌。|無操作時間が主な条件です。メモリや VRAM の常駐は高負荷ではありません。|Inaktivität löst aus; belegter RAM oder VRAM zählt nicht als Rechenlast.|La inactividad es la condición principal; ocupar RAM o VRAM no implica carga.|L’inactivité est le premier critère ; la RAM ou VRAM occupée ne compte pas comme charge.
+设置仍可修改，重新勾选即可恢复心跳。|You can still change settings. Enable keep-alive to resume.|仍可修改設定，重新勾選即可恢復心跳。|設定は変更できます。有効にすると再開します。|Einstellungen bleiben änderbar. Zum Fortsetzen aktivieren.|Puede cambiar ajustes. Active la función para reanudar.|Les réglages restent modifiables. Activez la fonction pour reprendre.
+等待计算负载下降后复查，不会重新累计一整段无人操作时间。|Rechecks when compute load drops; the idle timer is not restarted.|計算負載下降後重新檢查，不會重新累計整段無操作時間。|負荷が下がると再確認します。無操作時間はリセットしません。|Nach sinkender Last wird erneut geprüft; die Wartezeit beginnt nicht neu.|Se revisa al bajar la carga; el tiempo de inactividad no se reinicia.|Nouvelle vérification à la baisse de charge ; le délai n’est pas réinitialisé.
+恢复操作或关闭保活时会结束负载；自己的鼠标动作不会重置无人操作计时。|Input or disabling keep-alive stops the load. Our mouse movement does not reset the idle timer.|恢復操作或關閉保活會結束負載；自身滑鼠動作不會重置無操作計時。|操作や無効化で停止します。自身のマウス移動は無操作時間をリセットしません。|Eingaben oder Abschalten stoppen die Last. Eigene Mausbewegungen setzen die Zeit nicht zurück.|Las entradas o la desactivación detienen la carga. El movimiento propio no reinicia el tiempo.|Une interaction ou la désactivation arrête la charge. Nos mouvements ne remettent pas le délai à zéro.
+当前不执行心跳，请查看设置或运行状态。|No heartbeat now. Check settings or status.|目前不執行心跳，請查看設定或狀態。|現在は実行しません。設定または状態をご確認ください。|Kein Heartbeat. Einstellungen oder Status prüfen.|Sin ejecución. Revise los ajustes o el estado.|Pas d’exécution. Vérifiez les réglages ou l’état.
+后台运行中 · 上次心跳有异常|Engine running · last heartbeat had issues|背景執行中 · 上次心跳有異常|動作中・前回の実行に問題あり|Hintergrund aktiv · letzter Heartbeat mit Fehlern|Motor activo · último latido con problemas|Moteur actif · dernière exécution avec problèmes
+若持续未连接，可查看日志或重新打开应用。|If it stays offline, check the log or reopen the app.|若持續未連接，可查看日誌或重新開啟程式。|接続できない場合はログを確認するか再起動してください。|Bleibt es offline, Protokoll prüfen oder Anwendung neu öffnen.|Si sigue sin conexión, revise el registro o vuelva a abrir la aplicación.|Si la connexion échoue, consultez le journal ou rouvrez l’application.
+本次剩余 {0}|Remaining: {0}|本次剩餘 {0}|残り {0}|Verbleibend: {0}|Restante: {0}|Reste : {0}
+预计还有 {0}|Next in {0}|預計還有 {0}|次回まで {0}|Nächster in {0}|Próximo en {0}|Prochaine dans {0}
+双击查看详情|Double-click for details|按兩下查看詳情|ダブルクリックで詳細|Doppelklick für Details|Doble clic para detalles|Double-clic pour les détails
+语言|Language|語言|言語|Sprache|Idioma|Langue
+版本与更新|Version and updates|版本與更新|バージョンと更新|Version und Updates|Versión y actualizaciones|Version et mises à jour
+当前版本：{0}|Current version: {0}|目前版本：{0}|現在のバージョン：{0}|Aktuelle Version: {0}|Versión actual: {0}|Version actuelle : {0}
+检查版本更新|Check for updates|檢查版本更新|更新を確認|Nach Updates suchen|Buscar actualizaciones|Rechercher des mises à jour
+自动检查更新（每天）|Check for updates daily|每日自動檢查更新|毎日更新を確認|Täglich nach Updates suchen|Buscar actualizaciones a diario|Vérifier les mises à jour chaque jour
+打开 GitHub 项目|Open GitHub project|開啟 GitHub 專案|GitHub プロジェクトを開く|GitHub-Projekt öffnen|Abrir proyecto en GitHub|Ouvrir le projet GitHub
+查看新版与下载|View release and download|檢視新版與下載|リリースとダウンロード|Version und Download ansehen|Ver versión y descargar|Voir la version et télécharger
+正在检查版本…|Checking for updates…|正在檢查版本…|更新を確認中…|Updates werden gesucht…|Buscando actualizaciones…|Recherche de mises à jour…
+尚未检查更新|Updates not checked yet|尚未檢查更新|未確認|Noch nicht geprüft|Sin comprobar todavía|Pas encore vérifié
+已是最新稳定版本|You have the latest stable version|已是最新穩定版本|最新の安定版です|Aktuelle stabile Version installiert|Tiene la última versión estable|Vous avez la dernière version stable
+发现新版本：{0}|New version available: {0}|發現新版本：{0}|新バージョン：{0}|Neue Version verfügbar: {0}|Nueva versión disponible: {0}|Nouvelle version disponible : {0}
+尚无公开的稳定版本|No public stable release yet|尚無公開的穩定版本|公開された安定版はありません|Noch keine öffentliche stabile Version|Aún no hay versión estable pública|Aucune version stable publique
+网络连接失败，请稍后重试|Network check failed. Please retry later.|網路連線失敗，請稍後重試|通信できません。後で再試行してください|Netzwerkfehler. Später erneut versuchen.|Error de red. Inténtelo más tarde.|Échec réseau. Réessayez plus tard.
+GitHub 请求过于频繁，请稍后重试|GitHub rate limit reached. Retry later.|GitHub 請求過於頻繁，請稍後重試|GitHub の制限に達しました。後で再試行|GitHub-Anfragelimit erreicht. Später erneut versuchen.|Límite de GitHub alcanzado. Reintente más tarde.|Limite GitHub atteinte. Réessayez plus tard.
+版本信息无法验证，请到 GitHub 查看|Release data could not be verified. Check GitHub.|無法驗證版本資訊，請至 GitHub 查看|情報を検証できません。GitHub をご確認ください|Versionsdaten ungültig. Auf GitHub prüfen.|No se pudo verificar la versión. Consulte GitHub.|Version non vérifiable. Consultez GitHub.
+仅检查 GitHub Releases；不会自动下载安装。|Checks GitHub Releases only; never downloads or installs automatically.|僅檢查 GitHub Releases，不會自動下載或安裝。|GitHub Releases の確認のみ。自動ダウンロード・インストールはしません。|Prüft GitHub Releases; kein automatischer Download oder Einbau.|Solo consulta GitHub Releases; no descarga ni instala automáticamente.|Consulte GitHub Releases ; aucun téléchargement ou installation automatique.
+
+启动设置|Startup|啟動設定|起動設定|Startverhalten|Inicio|Démarrage
+开机自启动|Start with Windows|開機自動啟動|Windows と同時に起動|Mit Windows starten|Iniciar con Windows|Démarrer avec Windows
+静默启动（仅显示托盘图标）|Start silently (tray icon only)|靜默啟動（僅顯示系統匣圖示）|サイレント起動（トレイのみ）|Still starten (nur Tray-Symbol)|Inicio silencioso (solo bandeja)|Démarrage discret (icône uniquement)
+应用启动设置|Apply startup settings|套用啟動設定|起動設定を適用|Starteinstellungen anwenden|Aplicar ajustes de inicio|Appliquer le démarrage
+启动设置尚未应用|Startup changes not applied|啟動設定尚未套用|起動設定は未適用です|Startänderungen nicht angewandt|Cambios de inicio sin aplicar|Modifications non appliquées
+安装版：后台随系统启动；界面在登录后启动。修改需要管理员授权。|Installed: engine starts at boot; interface starts at sign-in. Changes require administrator approval.|安裝版：背景隨系統啟動；介面在登入後啟動。修改需要管理員授權。|インストール版：起動時にバックグラウンド、ログイン時に画面を開始。変更には管理者承認が必要です。|Installiert: Hintergrund beim Systemstart, Oberfläche bei Anmeldung. Änderungen erfordern Administratorrechte.|Instalado: motor al arrancar; interfaz al iniciar sesión. Los cambios requieren autorización de administrador.|Installé : moteur au démarrage, interface à la connexion. Les changements nécessitent une autorisation administrateur.
+便携版：当前用户登录 Windows 后启动。移动程序目录后请重新设置。|Portable: starts when this user signs in to Windows. Reapply after moving the program folder.|可攜版：目前使用者登入 Windows 後啟動。移動程式目錄後請重新設定。|ポータブル版：現在のユーザーのログイン時に起動。フォルダー移動後は再設定してください。|Portabel: Start bei Windows-Anmeldung dieses Benutzers. Nach Verschieben des Ordners erneut anwenden.|Portátil: inicia al entrar este usuario en Windows. Vuelva a aplicar si mueve la carpeta.|Portable : démarre à la connexion de cet utilisateur. Réappliquer après déplacement du dossier.
+无法读取启动状态，请查看日志|Cannot read startup state; see log|無法讀取啟動狀態，請查看記錄|起動状態を取得できません。ログを確認してください|Startstatus nicht lesbar; siehe Protokoll|No se pudo leer el inicio; vea el registro|État du démarrage illisible ; voir le journal
+部分启动任务已启用，请重新应用|Some startup tasks enabled; reapply|部分啟動工作已啟用，請重新套用|一部の起動タスクのみ有効です。再適用してください|Einige Startaufgaben aktiv; erneut anwenden|Algunas tareas activas; vuelva a aplicar|Certaines tâches actives ; réappliquer
+自启动已开启|Startup is enabled|自動啟動已開啟|自動起動は有効です|Autostart ist aktiviert|Inicio automático activado|Démarrage automatique activé
+自启动已关闭|Startup is disabled|自動啟動已關閉|自動起動は無効です|Autostart ist deaktiviert|Inicio automático desactivado|Démarrage automatique désactivé
+正在应用启动设置…|Applying startup settings…|正在套用啟動設定…|起動設定を適用中…|Starteinstellungen werden angewandt…|Aplicando ajustes de inicio…|Application du démarrage…
+授权已取消，启动设置未修改|Approval cancelled; startup unchanged|授權已取消，啟動設定未修改|承認が取り消されました。起動設定は未変更です|Bestätigung abgebrochen; Start unverändert|Autorización cancelada; inicio sin cambios|Autorisation annulée ; démarrage inchangé
+启动设置失败，请查看日志|Startup change failed; see log|啟動設定失敗，請查看記錄|起動設定を変更できません。ログを確認してください|Startänderung fehlgeschlagen; siehe Protokoll|Error al cambiar inicio; vea el registro|Échec du démarrage ; voir le journal

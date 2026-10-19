@@ -1,0 +1,14 @@
+bin/
+test-data/
+release/
+install-result.json
+activity/
+backups/
+installation.json
+heartbeat.json
+pulse-*.json
+watchdog.log*
+*.tmp
+*.bak
+*.pdb
+version.txt

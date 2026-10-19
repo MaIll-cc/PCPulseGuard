@@ -1,0 +1,31 @@
+name: Bug report / 问题反馈
+description: Report unexpected behavior / 反馈异常行为
+body:
+  - type: markdown
+    attributes:
+      value: "Do not include secrets, unredacted logs or private paths. 请勿提交凭据、未脱敏日志或私人路径。"
+  - type: input
+    id: version
+    attributes:
+      label: App version / 应用版本
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment / 环境
+      description: Windows version, CPU/GPU models, portable or installed / 系统版本、CPU/GPU 型号、便携或安装模式
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps and selected settings / 复现步骤和设置
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior / 预期与实际表现
+    validations:
+      required: true
